@@ -4,10 +4,6 @@
 
 ///// Erstelle eine Funktion die eine Variable willkürlich auswählt
 
-// Erstelle die Variablen
-const rock = "Rock";
-const paper = "Paper";
-const scissors = "Scissor";
 
 // Erstelle eine willkürliche Zahl zwischen 0 und 1
 let random = Math.random();
@@ -15,11 +11,11 @@ let random = Math.random();
 // Auf Grundlage der Zahl wähle eine Variable aus
 function computerPlay() {
     if(random >= 0.66) {
-        return rock
+        return "Rock";
     } else if (random >= 0.33 && random < 0.66) {
-        return paper
+        return "Paper";
     } else {
-        return scissors
+        return "Scissors";
     }
 };
 
@@ -31,30 +27,46 @@ function computerPlay() {
 function playRound() {
 
     if (playerSelection.toLowerCase() === "rock" && computerSelection == "Paper") {
-        return("You lose! Paper beats rock");
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection == "Scissor") {
-        return ("You win. Rock beats scissors");
+        return("You lose! Paper beats rock") && computerScore++;
+    } else if (playerSelection.toLowerCase() === "rock" && computerSelection == "Scissors") {
+        return ("You win. Rock beats scissors") && playerScore++;;
     } else if (playerSelection.toLowerCase() === "rock" && computerSelection == "Rock") {
         return ("Nobody wins. Play again"); 
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Rock") {
-        return ("You win. Paper beats rock"); 
+        return ("You win. Paper beats rock" && playerScore++); 
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Scissor") {
-        return ("You lose! Scissor beats paper"); 
+        return ("You lose! Scissor beats paper") && computerScore++; 
     } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Paper") {
-        return ("Nobody wins. Play again"); 
+        return ("Nobody wins. Play again")  
     } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Rock") {
-        return ("You lose! Rock beats scissor."); 
+        return ("You lose! Rock beats scissor.") && computerScore++;; 
     } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Paper") {
-        return ("You win. Scissor beats paper."); 
+        return ("You win. Scissor beats paper.") && playerScore++; 
     } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Scissors") {
-        return ("Nobody wins. Play again");                 
+        return ("Nobody wins. Play again");        
               }
+
 };
 
 const computerSelection = computerPlay();
-const playerSelection = "rock";
-
-
+const playerSelection = prompt ( "Rock, paper or scissor?", "");
 
 ///// Erstelle eine Funktion game(), die 5 Runden spielt, die Ergebnisse zählt und den Gewinner nennt.
+
+ /* 
+ Spiele eine Runde
+ Merke das Ergebnis 
+ Spiele insgesamt 5 mal und merke das Ergebnis
+ Wenn die computerSelection öfter gewonnen hat, gebe einen Hinweis aus
+ ansonsten gebe den Hinweis aus, dass die playerSelection gewonnen hat
+
+ */
+
+let playerScore = 0;
+let computerScore = 0;
+
+playRound(playerSelection, computerSelection);
+console.log(playRound(playerSelection, computerSelection))
+
+
 
