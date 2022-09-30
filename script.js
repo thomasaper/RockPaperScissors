@@ -18,6 +18,15 @@ function getComputerChoice() {
 };
 
 
+// Erstelle eine Funktion, die eine einzelne Runde Paper Scissors spielt. Die Parameter playerSelection und computerSelection
+// sollen enthalten sein. Am Ende soll ein string ausgegeben werden, der den Gewinner bekannt gibt. Die playerSelection soll 
+// case-insentive sein
+
+// Pseudocode
+// Erstelle eine Variable, die die computerSelection enthält
+// Erstelle eine Variable, die die playerSelection abfragt
+// Erstelle eine Funktion, die eine Runde mit den Parametern durchspielt
+// Mache die Eingabe der playerSelection case-insentive
 
 
 /*
