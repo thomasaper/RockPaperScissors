@@ -34,7 +34,6 @@ let playerSelection = prompt();
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
                 console.log("DRAW");
-                return 0;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
                 console.log("WON");
                 return true;
@@ -68,6 +67,29 @@ console.log(playRound(computerSelection, playerSelection));
 // Erstelle einen Loop, der fünfmal spielt und den Score mitzählt
 // Gebe einen string aus, der verkündet, wer der Gewinner ist.
 
+function game() {
+        let playerScore = 0;
+        let computerScore = 0;
+
+        for (let i = 0; i < 5; i++) {
+                let result = playRound(computerSelection, playerSelection);
+                if (result === true) {
+                        playerScore++
+                } else if (result === false) {
+                        computerScore++
+                }
+             };
+        
+        if(playerScore > computerScore){
+                return "You win!"
+        } else if (playerScore < computerScore){
+                return "You lose!"
+        } else {
+                return "Nobody wins!"
+        };
+};
+
+console.log(game());
 
 /*
 
