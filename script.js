@@ -1,72 +1,85 @@
 
+/*
+
+// Rock, paper,scissors game, played in console against a computer
+// create a function that returns at random, rock paper or scissors. 
+// computerPlayer should be first function 
 
 
 
-///// Erstelle eine Funktion die eine Variable willkürlich auswählt
-
-
-// Erstelle eine willkürliche Zahl zwischen 0 und 1
-let random = Math.random();
-
-// Auf Grundlage der Zahl wähle eine Variable aus
-function computerPlay() {
-    if(random >= 0.66) {
-        return "Rock";
-    } else if (random >= 0.33 && random < 0.66) {
-        return "Paper";
-    } else {
-        return "Scissors";
+function computerPlayer() {
+    let rPS = ["ROCK", "PAPER", "SCISSORS"];
+    let compChoice = Math.floor(Math.random() * rPS.length);
+    
+    return compChoice == 0 ? "ROCK" :
+            compChoice == 1 ? "SCISSORS" :
+            "PAPER";   
     }
-};
+    
+// computerSelection = computerPlay(); 
+    computerSelection = computerPlayer(); 
+    playerSelection = prompt(); 
 
-///// Spiele eine Runde playerselection gege computerselection und gebe einen string aus, der das Spielergebnis nennt.
+// playRound decides the winner
+    function playRound(playerSelection, computerSelection) {
+            if (playerSelection.toUpperCase() === computerSelection) {
+                    return console.log("DRAW");
+            } else if (playerSelection.toUpperCase()=== "ROCK" && computerSelection === "SCISSORS"){
+                    console.log("Won")
+                    return true;
+            } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
+                    console.log("Won")
+                    return true;
+            } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
+                    console.log("Won")
+                    return true;
+            }  else if (playerSelection.toUpperCase()=== "ROCK" && computerSelection === "PAPER"){
+                    console.log("Loss")
+                    return false;
+            } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
+                    console.log("Loss")
+                    return false;;
+            } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") 
+                    console.log("loss")
+                    return false;
 
-// mache die playerSelection case-insentive
-
-
-function playRound() {
-
-    if (playerSelection.toLowerCase() === "rock" && computerSelection == "Paper") {
-        return("You lose! Paper beats rock") && computerScore++;
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection == "Scissors") {
-        return ("You win. Rock beats scissors") && playerScore++;;
-    } else if (playerSelection.toLowerCase() === "rock" && computerSelection == "Rock") {
-        return ("Nobody wins. Play again"); 
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Rock") {
-        return ("You win. Paper beats rock" && playerScore++); 
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Scissor") {
-        return ("You lose! Scissor beats paper") && computerScore++; 
-    } else if (playerSelection.toLowerCase() === "paper" && computerSelection == "Paper") {
-        return ("Nobody wins. Play again")  
-    } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Rock") {
-        return ("You lose! Rock beats scissor.") && computerScore++;; 
-    } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Paper") {
-        return ("You win. Scissor beats paper.") && playerScore++; 
-    } else if (playerSelection.toLowerCase() === "scissor" && computerSelection == "Scissors") {
-        return ("Nobody wins. Play again");        
-              }
-
-};
-
-const computerSelection = computerPlay();
-const playerSelection = prompt ( "Rock, paper or scissor?", "");
-
-///// Erstelle eine Funktion game(), die 5 Runden spielt, die Ergebnisse zählt und den Gewinner nennt.
-
- /* 
- Spiele eine Runde
- Merke das Ergebnis 
- Spiele insgesamt 5 mal und merke das Ergebnis
- Wenn die computerSelection öfter gewonnen hat, gebe einen Hinweis aus
- ansonsten gebe den Hinweis aus, dass die playerSelection gewonnen hat
-
- */
-
-let playerScore = 0;
-let computerScore = 0;
-
-playRound(playerSelection, computerSelection);
-console.log(playRound(playerSelection, computerSelection))
+    }
+           
 
 
 
+// results logged in console
+   // console.log(playerSelection);
+    //console.log(computerSelection)
+    //console.log(playerScore)
+    //console.log(computerScore)
+     
+
+// gameRound() Function Dec 
+
+
+
+    function gameRound() {
+            let playerScore = 0;
+            let computerScore = 0; 
+            for (let i = 0; i<5; i++){
+                    
+                  let result = playRound(playerSelection, computerPlayer()); //playRound
+                  if (result === true) {
+                          playerScore++
+                  } else if (result === false){
+                          computerScore++
+                  } 
+           
+            }
+            if (playerScore>computerScore){
+                    return "well done! You have won the game!"
+            } else if (playerScore<computerScore){
+                    return "Unlucky!, you lost good looking!"
+            } else return "No one won, you are both equally awful!"
+    }
+     
+                      
+    console.log(gameRound())
+
+*/
