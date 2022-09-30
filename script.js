@@ -4,12 +4,19 @@
 // Pseudocode
 // Erstelle die Funktion getComputerChoice
 // Erstelle ein array mit den strings
-// Erstelle den Zufallsalgorithmus zur Auswahl der strings aus dem array
-// Erstelle eine return-Funktion, die eine zufällige Auswahl trifft
+// Erstelle eine Variable mit einem Zufallsalgorithmus, der eine Zahl aufgrund der Länge des arrays wiedergibt
+// Erstelle eine return-Funktion mit dem ternären Operator (?) , die aufgrund der Zahl 'Rock', 'Paper' oder 'Scissors' ausgibt
+// ternärer Operator Logik =   Bedingung ? Code Bedingung true : Code Bedingung false
 
 function getComputerChoice() {
-        
+        let choice = ["ROCK", "PAPER", "SCISSORS"];
+        let compChoice = Math.floor(Math.random() * choice.length)
+
+        return compChoice = 0 ? "ROCK":
+               compChoice = 1 ? "SCISSORS":
+               "PAPER";      
 };
+
 
 /*
 
