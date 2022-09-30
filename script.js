@@ -34,23 +34,39 @@ let playerSelection = prompt();
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
                 console.log("DRAW");
+                return 0;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
                 console.log("WON");
+                return true;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
                 console.log("WON");
+                return true;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
                 console.log("WON");
+                return true;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
                 console.log("LOSE");
+                return false;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
                 console.log("LOSE");
+                return false;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
                 console.log("LOSE");
+                return false;
         }
 };
 
 console.log(computerSelection);
 console.log(playRound(computerSelection, playerSelection));
+
+// Erstelle eine Funktion game(), die fünf Runden spielt, den Score mitzählt und am Ende den Gewinner ausgibt
+
+// Pseudocode
+// Erstelle eine Funktion game()
+// Erstelle eine Variable, die den Score der computerSelection enthält
+// Erstelle eine Variable, die den Score der playerSelection enthält
+// Erstelle einen Loop, der fünfmal spielt und den Score mitzählt
+// Gebe einen string aus, der verkündet, wer der Gewinner ist.
 
 
 /*
