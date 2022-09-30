@@ -25,8 +25,32 @@ function getComputerChoice() {
 // Pseudocode
 // Erstelle eine Variable, die die computerSelection enthält
 // Erstelle eine Variable, die die playerSelection abfragt
-// Erstelle eine Funktion, die eine Runde mit den Parametern durchspielt
+// Erstelle eine Funktion, die eine Runde mit den Parametern durchspielt und den Gewinner bestimmt
 // Mache die Eingabe der playerSelection case-insentive
+
+let computerSelection = getComputerChoice();
+let playerSelection = prompt();
+
+function playRound(computerSelection, playerSelection) {
+        if (playerSelection.toUpperCase() === computerSelection) {
+                console.log("DRAW");
+        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
+                console.log("WON");
+        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
+                console.log("WON");
+        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
+                console.log("WON");
+        } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
+                console.log("LOSE");
+        } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
+                console.log("LOSE");
+        } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
+                console.log("LOSE");
+        }
+};
+
+console.log(computerSelection);
+console.log(playRound(computerSelection, playerSelection));
 
 
 /*
