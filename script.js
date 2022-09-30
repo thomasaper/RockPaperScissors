@@ -1,4 +1,16 @@
 
+// Erstelle eine Funktion mit dem Namen getComputerChoice, die zufällig 'Rock', 'Paper', oder 'Scissors' ausgibt
+
+// Pseudocode
+// Erstelle die Funktion getComputerChoice
+// Erstelle ein array mit den strings
+// Erstelle den Zufallsalgorithmus zur Auswahl der strings aus dem array
+// Erstelle eine return-Funktion, die eine zufällige Auswahl trifft
+
+function getComputerChoice() {
+        
+};
+
 /*
 
 // Rock, paper,scissors game, played in console against a computer
