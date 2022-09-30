@@ -10,12 +10,14 @@
 
 function getComputerChoice() {
         let choice = ["ROCK", "PAPER", "SCISSORS"];
-        let compChoice = Math.floor(Math.random() * choice.length)
+        let compChoice = Math.floor(Math.random() * choice.length);
 
-        return compChoice = 0 ? "ROCK":
-               compChoice = 1 ? "SCISSORS":
+        return compChoice == 0 ? "ROCK":
+               compChoice == 1 ? "SCISSORS":
                "PAPER";      
 };
+
+
 
 
 /*
