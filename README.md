@@ -1,4 +1,5 @@
 # RockPaperScissors
 
-Das Spiel Rock Paper Scissors wird in der Konsole gegen den Computer gespielt
+The game Rock Paper Scissors is played in the console against the computer.
 
+Assignment from https://www.theodinproject.com/lessons/foundations-rock-paper-scissors.
