@@ -97,7 +97,7 @@ const buttonRock = document.querySelector('.rock');
 
 buttonRock.addEventListener('click', () => {
         playerSelection = "ROCK";
-        playRound(computerSelection, playerSelection);
+        playRound(getComputerChoice(), playerSelection);
 });
 
 
@@ -105,12 +105,13 @@ const buttonPaper = document.querySelector('.paper');
 
 buttonPaper.addEventListener('click', () => {
         playerSelection = "PAPER";
-        playRound(computerSelection, playerSelection);
+        playRound(getComputerChoice(), playerSelection);
 });
+
 
 const buttonScissors = document.querySelector('.scissors');
 
 buttonScissors.addEventListener('click', () => {
         playerSelection = "SCISSORS";
-        playRound(computerSelection, playerSelection);
+        playRound(getComputerChoice(), playerSelection);
 });
