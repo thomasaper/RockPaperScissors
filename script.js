@@ -1,4 +1,5 @@
 
+
 // Create a function named getComputerChoice that randomly outputs 'Rock', 'Paper', or 'Scissors'.
 
 // Pseudocode
@@ -88,5 +89,28 @@ function game() {
         };
 };
 
-console.log(game());
 
+
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+
+const buttonRock = document.querySelector('.rock');
+
+buttonRock.addEventListener('click', () => {
+        playerSelection = "ROCK";
+        playRound(computerSelection, playerSelection);
+});
+
+
+const buttonPaper = document.querySelector('.paper');
+
+buttonPaper.addEventListener('click', () => {
+        playerSelection = "PAPER";
+        playRound(computerSelection, playerSelection);
+});
+
+const buttonScissors = document.querySelector('.scissors');
+
+buttonScissors.addEventListener('click', () => {
+        playerSelection = "SCISSORS";
+        playRound(computerSelection, playerSelection);
+});
