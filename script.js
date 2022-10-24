@@ -1,12 +1,12 @@
 
-// Erstelle eine Funktion mit dem Namen getComputerChoice, die zufällig 'Rock', 'Paper', oder 'Scissors' ausgibt
+// Create a function named getComputerChoice that randomly outputs 'Rock', 'Paper', or 'Scissors'.
 
 // Pseudocode
-// Erstelle die Funktion getComputerChoice
-// Erstelle ein array mit den strings
-// Erstelle eine Variable mit einem Zufallsalgorithmus, der eine Zahl aufgrund der Länge des arrays wiedergibt
-// Erstelle eine return-Funktion mit dem ternären Operator (?) , die aufgrund der Zahl 'Rock', 'Paper' oder 'Scissors' ausgibt
-// ternärer Operator Logik =   Bedingung ? Code Bedingung true : Code Bedingung false
+// Create the function getComputerChoice
+// Create an array with the strings
+// create a variable with a random algorithm that returns a number based on the length of the array
+// create a return function with the ternary operator (?) that returns 'Rock', 'Paper' or 'Scissors' based on the number
+// ternary operator logic = condition ? code condition true : code condition false
 
 function getComputerChoice() {
         let choice = ["ROCK", "PAPER", "SCISSORS"];
@@ -18,15 +18,15 @@ function getComputerChoice() {
 };
 
 
-// Erstelle eine Funktion, die eine einzelne Runde Paper Scissors spielt. Die Parameter playerSelection und computerSelection
-// sollen enthalten sein. Am Ende soll ein string ausgegeben werden, der den Gewinner bekannt gibt. Die playerSelection soll 
-// case-insentive sein
+// Create a function that plays a single round of Rock Paper Scissors. The parameters playerSelection and computerSelection
+// should be included. At the end of the game a string should be output, which announces the winner. The playerSelection shall 
+// be case-insensitive
 
-// Pseudocode
-// Erstelle eine Variable, die die computerSelection enthält
-// Erstelle eine Variable, die die playerSelection abfragt
-// Erstelle eine Funktion, die eine Runde mit den Parametern durchspielt und den Gewinner bestimmt
-// Mache die Eingabe der playerSelection case-insentive
+// Pseudo code
+// Create a variable that contains the computerSelection
+// Create a variable that queries the playerSelection
+// Create a function that runs a round with the parameters and determines the winner
+// Make the input of the playerSelection case-insensitive
 
 let computerSelection = getComputerChoice();
 let playerSelection = "ROCK";
@@ -58,14 +58,13 @@ function playRound(computerSelection, playerSelection) {
 // console.log(computerSelection);
 // console.log(playRound(computerSelection, playerSelection));
 
-// Erstelle eine Funktion game(), die fünf Runden spielt, den Score mitzählt und am Ende den Gewinner ausgibt
+// Create a game() function that plays one round, counts the score, and returns the winner at the end.
 
-// Pseudocode
-// Erstelle eine Funktion game()
-// Erstelle eine Variable, die den Score der computerSelection enthält
-// Erstelle eine Variable, die den Score der playerSelection enthält
-// Erstelle einen Loop, der fünfmal spielt und den Score mitzählt
-// Gebe einen string aus, der verkündet, wer der Gewinner ist.
+// Pseudo code
+// Create a game() function
+// Create a variable containing the computerSelection score
+// Create a variable containing the score of the playerSelection
+// Output a string that announces who is the winner.
 
 function game() {
         let playerScore = 0;
