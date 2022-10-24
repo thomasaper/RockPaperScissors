@@ -29,7 +29,7 @@ function getComputerChoice() {
 // Mache die Eingabe der playerSelection case-insentive
 
 let computerSelection = getComputerChoice();
-let playerSelection = prompt();
+let playerSelection = "ROCK";
 
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
@@ -71,14 +71,14 @@ function game() {
         let playerScore = 0;
         let computerScore = 0;
 
-        for (let i = 0; i < 5; i++) {
+        
                 let result = playRound(getComputerChoice(), playerSelection);
                 if (result === true) {
                         playerScore++
                 } else if (result === false) {
                         computerScore++
-                }
-             };
+                };
+             
         
         if(playerScore > computerScore){
                 return "You win!"
