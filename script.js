@@ -115,3 +115,5 @@ buttonScissors.addEventListener('click', () => {
         playerSelection = "SCISSORS";
         playRound(getComputerChoice(), playerSelection);
 });
+
+// Add a div for displaying results and change all of your console.logs into DOM methods
