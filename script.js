@@ -34,24 +34,24 @@ let playerSelection = "ROCK";
 
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
-                div.textContent = 'DRAW';
+                div.textContent = "Nobody wins. The round is a tie";
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
-                div.textContent = 'WON';
+                div.textContent = 'You have won this round';
                 return true;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
-                div.textContent = 'WON';
+                div.textContent = 'You have won this round';
                 return true;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
-                div.textContent = 'WON';
+                div.textContent = 'You have won this round';
                 return true;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
-                div.textContent = 'LOSE';
+                div.textContent = 'You lost this round';
                 return false;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
-                div.textContent = 'LOSE';
+                div.textContent = 'You lost this round';
                 return false;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
-                div.textContent = 'LOSE';
+                div.textContent = 'You lost this round';
                 return false;
         }
 };
@@ -68,16 +68,17 @@ function playRound(computerSelection, playerSelection) {
 // Output a string that announces who is the winner.
 
 function game() {
-        let playerScore = 0;
-        let computerScore = 0;
+        let playerScore = [];
+        let computerScore = [];
 
-        
+        for (let i = 0; i<=5; i++ ){
                 let result = playRound(getComputerChoice(), playerSelection);
                 if (result === true) {
                         playerScore++
                 } else if (result === false) {
                         computerScore++
                 };
+        };      
              
         
         if(playerScore > computerScore){
@@ -125,3 +126,18 @@ const body = document.querySelector('body');
 
 body.appendChild(div);
 
+// Display the running score, and announce a winner of the game once one player reaches 5 points.
+
+const scorePlayer = document.createElement('div');
+body.appendChild(scorePlayer);
+scorePlayer.textContent = 'Playerscore: ';
+
+const playerCounter = document.createElement('div');
+scorePlayer.appendChild(playerCounter);
+
+const scoreComputer = document.createElement('div');
+body.appendChild(scoreComputer);
+scoreComputer.textContent = 'Computerscore: ';
+
+const computerCounter = document.createElement('div');
+scoreComputer.appendChild(computerCounter);
