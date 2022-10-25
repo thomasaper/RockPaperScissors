@@ -32,27 +32,36 @@ function getComputerChoice() {
 let computerSelection = getComputerChoice();
 let playerSelection = "ROCK";
 
+let counterPlayer = 1;
+let counterComputer = 1;
+
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
                 div.textContent = "Nobody wins. The round is a tie";
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
                 div.textContent = 'You have won this round';
-                return true;
+                playerCounter.textContent = counterPlayer++;
+                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
                 div.textContent = 'You have won this round';
-                return true;
+                playerCounter.textContent = counterPlayer++;
+                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
                 div.textContent = 'You have won this round';
-                return true;
+                playerCounter.textContent = counterPlayer++;
+                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
                 div.textContent = 'You lost this round';
-                return false;
+                computerCounter.textContent = counterComputer++;
+                console.log(counterComputer);
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
                 div.textContent = 'You lost this round';
-                return false;
+                computerCounter.textContent = counterComputer++;
+                console.log(counterComputer);
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
                 div.textContent = 'You lost this round';
-                return false;
+                computerCounter.textContent = counterComputer++;
+                console.log(counterComputer);
         }
 };
 
@@ -67,6 +76,7 @@ function playRound(computerSelection, playerSelection) {
 // Create a variable containing the score of the playerSelection
 // Output a string that announces who is the winner.
 
+/*
 function game() {
         let playerScore = [];
         let computerScore = [];
@@ -89,7 +99,7 @@ function game() {
                 return "Nobody wins!"
         };
 };
-
+*/
 
 
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
@@ -141,3 +151,4 @@ scoreComputer.textContent = 'Computerscore: ';
 
 const computerCounter = document.createElement('div');
 scoreComputer.appendChild(computerCounter);
+
