@@ -34,24 +34,24 @@ let playerSelection = "ROCK";
 
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
-                console.log("DRAW");
+                div.textContent = 'DRAW';
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
-                console.log("WON");
+                div.textContent = 'WON';
                 return true;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
-                console.log("WON");
+                div.textContent = 'WON';
                 return true;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
-                console.log("WON");
+                div.textContent = 'WON';
                 return true;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
-                console.log("LOSE");
+                div.textContent = 'LOSE';
                 return false;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
-                console.log("LOSE");
+                div.textContent = 'LOSE';
                 return false;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
-                console.log("LOSE");
+                div.textContent = 'LOSE';
                 return false;
         }
 };
@@ -117,3 +117,11 @@ buttonScissors.addEventListener('click', () => {
 });
 
 // Add a div for displaying results and change all of your console.logs into DOM methods
+
+
+const div = document.createElement('div');
+
+const body = document.querySelector('body');
+
+body.appendChild(div);
+
