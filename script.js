@@ -19,6 +19,13 @@ function getComputerChoice() {
 };
 
 
+// Variables which counts the score
+let counterPlayer = 1;
+let counterComputer = 1;
+
+
+
+
 // Create a function that plays a single round of Rock Paper Scissors. The parameters playerSelection and computerSelection
 // should be included. At the end of the game a string should be output, which announces the winner. The playerSelection shall 
 // be case-insensitive
@@ -29,11 +36,13 @@ function getComputerChoice() {
 // Create a function that runs a round with the parameters and determines the winner
 // Make the input of the playerSelection case-insensitive
 
+
+
+
 let computerSelection = getComputerChoice();
 let playerSelection = "ROCK";
-
-let counterPlayer = 1;
-let counterComputer = 1;
+        
+       
 
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
@@ -41,65 +50,35 @@ function playRound(computerSelection, playerSelection) {
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
                 div.textContent = 'You have won this round';
                 playerCounter.textContent = counterPlayer++;
-                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
                 div.textContent = 'You have won this round';
                 playerCounter.textContent = counterPlayer++;
-                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
                 div.textContent = 'You have won this round';
                 playerCounter.textContent = counterPlayer++;
-                console.log(counterPlayer);
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
                 div.textContent = 'You lost this round';
                 computerCounter.textContent = counterComputer++;
-                console.log(counterComputer);
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
                 div.textContent = 'You lost this round';
                 computerCounter.textContent = counterComputer++;
-                console.log(counterComputer);
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
                 div.textContent = 'You lost this round';
                 computerCounter.textContent = counterComputer++;
-                console.log(counterComputer);
-        }
-};
+        };
 
-// console.log(computerSelection);
-// console.log(playRound(computerSelection, playerSelection));
-
-// Create a game() function that plays one round, counts the score, and returns the winner at the end.
-
-// Pseudo code
-// Create a game() function
-// Create a variable containing the computerSelection score
-// Create a variable containing the score of the playerSelection
-// Output a string that announces who is the winner.
-
-/*
-function game() {
-        let playerScore = [];
-        let computerScore = [];
-
-        for (let i = 0; i<=5; i++ ){
-                let result = playRound(getComputerChoice(), playerSelection);
-                if (result === true) {
-                        playerScore++
-                } else if (result === false) {
-                        computerScore++
-                };
-        };      
-             
-        
-        if(playerScore > computerScore){
-                return "You win!"
-        } else if (playerScore < computerScore){
-                return "You lose!"
-        } else {
-                return "Nobody wins!"
+        // If statement announces the winner or starts the rounds
+        if (counterPlayer === 5) {
+                const winnerPlayer = document.querySelector('.winner');
+                winnerPlayer.textContent = 'Congratulations. You won 5 rounds';
+                playerCounter.textContent = counterPlayer++;
+        } else if (counterComputer === 5) {
+                const winnerComputer = document.querySelector('.winner');
+                winnerComputer.textContent = 'Game Over. You lost 5 rounds';
+                computerCounter.textContent = counterComputer++;
         };
 };
-*/
+
 
 
 // Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
@@ -127,8 +106,7 @@ buttonScissors.addEventListener('click', () => {
         playRound(getComputerChoice(), playerSelection);
 });
 
-// Add a div for displaying results and change all of your console.logs into DOM methods
-
+// Add a div for displaying results 
 
 const div = document.createElement('div');
 
@@ -136,7 +114,7 @@ const body = document.querySelector('body');
 
 body.appendChild(div);
 
-// Display the running score, and announce a winner of the game once one player reaches 5 points.
+// Display the running score
 
 const scorePlayer = document.createElement('div');
 body.appendChild(scorePlayer);
@@ -151,4 +129,5 @@ scoreComputer.textContent = 'Computerscore: ';
 
 const computerCounter = document.createElement('div');
 scoreComputer.appendChild(computerCounter);
+
 
