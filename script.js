@@ -1,12 +1,13 @@
 
-// Erstelle eine Funktion mit dem Namen getComputerChoice, die zufällig 'Rock', 'Paper', oder 'Scissors' ausgibt
+
+// Create a function named getComputerChoice that randomly outputs 'Rock', 'Paper', or 'Scissors'.
 
 // Pseudocode
-// Erstelle die Funktion getComputerChoice
-// Erstelle ein array mit den strings
-// Erstelle eine Variable mit einem Zufallsalgorithmus, der eine Zahl aufgrund der Länge des arrays wiedergibt
-// Erstelle eine return-Funktion mit dem ternären Operator (?) , die aufgrund der Zahl 'Rock', 'Paper' oder 'Scissors' ausgibt
-// ternärer Operator Logik =   Bedingung ? Code Bedingung true : Code Bedingung false
+// Create the function getComputerChoice
+// Create an array with the strings
+// create a variable with a random algorithm that returns a number based on the length of the array
+// create a return function with the ternary operator (?) that returns 'Rock', 'Paper' or 'Scissors' based on the number
+// ternary operator logic = condition ? code condition true : code condition false
 
 function getComputerChoice() {
         let choice = ["ROCK", "PAPER", "SCISSORS"];
@@ -18,76 +19,115 @@ function getComputerChoice() {
 };
 
 
-// Erstelle eine Funktion, die eine einzelne Runde Paper Scissors spielt. Die Parameter playerSelection und computerSelection
-// sollen enthalten sein. Am Ende soll ein string ausgegeben werden, der den Gewinner bekannt gibt. Die playerSelection soll 
-// case-insentive sein
+// Variables which counts the score
+let counterPlayer = 1;
+let counterComputer = 1;
 
-// Pseudocode
-// Erstelle eine Variable, die die computerSelection enthält
-// Erstelle eine Variable, die die playerSelection abfragt
-// Erstelle eine Funktion, die eine Runde mit den Parametern durchspielt und den Gewinner bestimmt
-// Mache die Eingabe der playerSelection case-insentive
+
+
+
+// Create a function that plays a single round of Rock Paper Scissors. The parameters playerSelection and computerSelection
+// should be included. At the end of the game a string should be output, which announces the winner. The playerSelection shall 
+// be case-insensitive
+
+// Pseudo code
+// Create a variable that contains the computerSelection
+// Create a variable that queries the playerSelection
+// Create a function that runs a round with the parameters and determines the winner
+// Make the input of the playerSelection case-insensitive
+
+
+
 
 let computerSelection = getComputerChoice();
-let playerSelection = prompt();
+let playerSelection = "ROCK";
+        
+       
 
 function playRound(computerSelection, playerSelection) {
         if (playerSelection.toUpperCase() === computerSelection) {
-                console.log("DRAW");
+                div.textContent = "Nobody wins. The round is a tie";
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "SCISSORS") {
-                console.log("WON");
-                return true;
+                div.textContent = 'You have won this round';
+                playerCounter.textContent = counterPlayer++;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "ROCK") {
-                console.log("WON");
-                return true;
+                div.textContent = 'You have won this round';
+                playerCounter.textContent = counterPlayer++;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "PAPER") {
-                console.log("WON");
-                return true;
+                div.textContent = 'You have won this round';
+                playerCounter.textContent = counterPlayer++;
         } else if (playerSelection.toUpperCase() === "ROCK" && computerSelection === "PAPER") {
-                console.log("LOSE");
-                return false;
+                div.textContent = 'You lost this round';
+                computerCounter.textContent = counterComputer++;
         } else if (playerSelection.toUpperCase() === "PAPER" && computerSelection === "SCISSORS") {
-                console.log("LOSE");
-                return false;
+                div.textContent = 'You lost this round';
+                computerCounter.textContent = counterComputer++;
         } else if (playerSelection.toUpperCase() === "SCISSORS" && computerSelection === "ROCK") {
-                console.log("LOSE");
-                return false;
-        }
-};
+                div.textContent = 'You lost this round';
+                computerCounter.textContent = counterComputer++;
+        };
 
-// console.log(computerSelection);
-// console.log(playRound(computerSelection, playerSelection));
-
-// Erstelle eine Funktion game(), die fünf Runden spielt, den Score mitzählt und am Ende den Gewinner ausgibt
-
-// Pseudocode
-// Erstelle eine Funktion game()
-// Erstelle eine Variable, die den Score der computerSelection enthält
-// Erstelle eine Variable, die den Score der playerSelection enthält
-// Erstelle einen Loop, der fünfmal spielt und den Score mitzählt
-// Gebe einen string aus, der verkündet, wer der Gewinner ist.
-
-function game() {
-        let playerScore = 0;
-        let computerScore = 0;
-
-        for (let i = 0; i < 5; i++) {
-                let result = playRound(getComputerChoice(), playerSelection);
-                if (result === true) {
-                        playerScore++
-                } else if (result === false) {
-                        computerScore++
-                }
-             };
-        
-        if(playerScore > computerScore){
-                return "You win!"
-        } else if (playerScore < computerScore){
-                return "You lose!"
-        } else {
-                return "Nobody wins!"
+        // If statement announces the winner or starts the rounds
+        if (counterPlayer === 5) {
+                const winnerPlayer = document.querySelector('.winner');
+                winnerPlayer.textContent = 'Congratulations. You won 5 rounds';
+                playerCounter.textContent = counterPlayer++;
+        } else if (counterComputer === 5) {
+                const winnerComputer = document.querySelector('.winner');
+                winnerComputer.textContent = 'Game Over. You lost 5 rounds';
+                computerCounter.textContent = counterComputer++;
         };
 };
 
-console.log(game());
+
+
+// Add an event listener to the buttons that call your playRound function with the correct playerSelection every time a button is clicked.
+
+const buttonRock = document.querySelector('.rock');
+
+buttonRock.addEventListener('click', () => {
+        playerSelection = "ROCK";
+        playRound(getComputerChoice(), playerSelection);
+});
+
+
+const buttonPaper = document.querySelector('.paper');
+
+buttonPaper.addEventListener('click', () => {
+        playerSelection = "PAPER";
+        playRound(getComputerChoice(), playerSelection);
+});
+
+
+const buttonScissors = document.querySelector('.scissors');
+
+buttonScissors.addEventListener('click', () => {
+        playerSelection = "SCISSORS";
+        playRound(getComputerChoice(), playerSelection);
+});
+
+// Add a div for displaying results 
+
+const div = document.createElement('div');
+
+const body = document.querySelector('body');
+
+body.appendChild(div);
+
+// Display the running score
+
+const scorePlayer = document.createElement('div');
+body.appendChild(scorePlayer);
+scorePlayer.textContent = 'Playerscore: ';
+
+const playerCounter = document.createElement('div');
+scorePlayer.appendChild(playerCounter);
+
+const scoreComputer = document.createElement('div');
+body.appendChild(scoreComputer);
+scoreComputer.textContent = 'Computerscore: ';
+
+const computerCounter = document.createElement('div');
+scoreComputer.appendChild(computerCounter);
+
 
